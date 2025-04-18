@@ -12,6 +12,8 @@
   --font-mono: var(--font-geist-mono);
 }
 
-.markdown h3{
+.markdown h3 {
   @apply text-3xl
 }
+
+.markdown p {}
