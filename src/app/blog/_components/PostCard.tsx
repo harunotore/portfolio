@@ -1,8 +1,7 @@
-import { PostCardType } from "@/types/types";
-import { Box, Card, Text } from "@radix-ui/themes";
+import { Box, Card } from "@radix-ui/themes";
 import Link from "next/link";
 
-export default function PostCard({ slug, meta }: PostCardType) {
+export default function PostCard({ slug, meta }) {
     return (
         <div>
             <Card asChild size={"5"}>
