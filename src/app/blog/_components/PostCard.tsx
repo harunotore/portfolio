@@ -1,7 +1,10 @@
+import { metaType } from "@/types/types";
 import { Box, Card } from "@radix-ui/themes";
 import Link from "next/link";
 
-export default function PostCard({ slug, meta }) {
+export default function PostCard({ slug, meta }: {
+    slug: string, meta: metaType
+}) {
     return (
         <div>
             <Card asChild size={"5"}>

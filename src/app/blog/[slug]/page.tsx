@@ -4,7 +4,7 @@ import matter from 'gray-matter'
 import path from 'path'
 import ReactMarkdown from 'react-markdown'
 
-export default async function SlugPge({ params }: { params: Promise<{ slug: string }> }) {
+export default async function SlugPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params
     const postPath = getPostsPath()
     const markdownFile = fs.readFileSync(path.join(postPath, slug + '.mdx'), 'utf-8')
