@@ -2,18 +2,25 @@ import { getPostsPath } from '@/utils/utils'
 import fs from 'fs'
 import matter from 'gray-matter'
 import path from 'path'
-import { MDXRemote } from 'next-mdx-remote/rsc'
+import ReactMarkdown from 'react-markdown'
 
-export default async function page({ params }: { params: Promise<{ slug: string }> }) {
+export default async function SlugPge({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params
     const postPath = getPostsPath()
     const markdownFile = fs.readFileSync(path.join(postPath, slug + '.mdx'), 'utf-8')
     const { data: frontMatter, content } = matter(markdownFile)
-    console.log(content)
+    console.log(frontMatter, content)
+
     return (
-        <article className='prose prose-sm md:prose-base lg:prose-lg prose-slate !prose-invert mx-auto'>
-            <h1>{frontMatter.title}</h1>
-            <MDXRemote source={content} />
+        <article className='px-20'>
+            <h1 className='text-4xl'>{frontMatter.title}</h1>
+            <p>{frontMatter.date}</p>
+            
+            <div className='markdown'>
+                <ReactMarkdown>
+                    {content}
+                </ReactMarkdown>
+            </div>
         </article>
     )
 }
