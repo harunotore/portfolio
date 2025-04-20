@@ -22,6 +22,7 @@ export default function page() {
     const postsList2 = posts.map((post) =>
         <PostCard key={post.slug} slug={post.slug} meta={post.meta as metaType} />
     )
+    
     return (
         <main className="flex flex-col px-8">
             <h1 className="text-3xl font-bold">
